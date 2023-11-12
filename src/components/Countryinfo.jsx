@@ -1,14 +1,17 @@
 /* eslint-disable react/jsx-key */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { Link, useParams } from "react-router-dom";
 import { apiURL } from "./api";
 import arrow from "../assets/Shape.png";
+import arrowlight from "../assets/call-made.svg";
+import { ThemeContext } from "./ContextTheme";
 
 const Countryinfo = () => {
   const [country, setCountry] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const { darkTheme } = useContext(ThemeContext);
 
   const { countryName } = useParams();
 
@@ -34,21 +37,33 @@ const Countryinfo = () => {
 
   return (
     <div className="country_info_wrapper">
-      <button>
-        <Link to="/">
+      <button className={darkTheme ? "darkhead" : "lighthead"}>
+        {darkTheme ? (
+          <img src={arrowlight} alt="arrow" />
+        ) : (
           <img src={arrow} alt="arrow" />
-          Back
+        )}
+        <Link to="/">
+          <p>Back</p>
         </Link>
       </button>
 
       {isLoading && !error && (
-        <h4>😃 Patience is a virtue, especially during loading times</h4>
+        <h4 className={darkTheme ? "lightcon" : "darkcon"}>
+          😃 Patience is a virtue, especially during loading times
+        </h4>
       )}
 
       {error && !isLoading && { error }}
 
       {country?.map((country, index) => (
-        <div className="country_info_container">
+        <div
+          className={
+            darkTheme
+              ? "darkcon country_info_container"
+              : "lightcon country_info_container"
+          }
+        >
           <div className="country_info-img">
             <img src={country.flags.png} alt="flags" />
           </div>
@@ -77,9 +92,12 @@ const Countryinfo = () => {
                 </h5>
               </div>
 
-              <div className="country_info-right">
+              <div className="country_info-right ">
                 <h5>
-                  Top Level Domain:<span>{country.tld}</span>
+                  Top Level Domain:
+                  <span className={darkTheme ? "lightcon" : "darkcon"}>
+                    {country.tld}
+                  </span>
                 </h5>
                 <h5>
                   Currencies:<span>{country.currency}</span>
@@ -98,11 +116,21 @@ const Countryinfo = () => {
             <>
               <h5>Border Countries:</h5>
               <ul key={country}>
-                <li>{country.borders[0]}</li>
-                <li>{country.borders[1]}</li>
-                <li>{country.borders[2]}</li>
-                <li>{country.borders[3]}</li>
-                <li>{country.borders[4]}</li>
+                <li className={darkTheme ? "darkhead" : "lighthead"}>
+                  {country.borders[0]}
+                </li>
+                <li className={darkTheme ? "darkhead" : "lighthead"}>
+                  {country.borders[1]}
+                </li>
+                <li className={darkTheme ? "darkhead" : "lighthead"}>
+                  {country.borders[2]}
+                </li>
+                <li className={darkTheme ? "darkhead" : "lighthead"}>
+                  {country.borders[3]}
+                </li>
+                <li className={darkTheme ? "darkhead" : "lighthead"}>
+                  {country.borders[4]}
+                </li>
               </ul>
             </>
           );

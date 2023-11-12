@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ThemeContext } from "./ContextTheme";
 // eslint-disable-next-line react/prop-types
 const FilterCountry = ({ onSelect }) => {
   const selectHandler = (e) => {
@@ -5,8 +7,13 @@ const FilterCountry = ({ onSelect }) => {
 
     onSelect(regionName);
   };
+  const { darkTheme } = useContext(ThemeContext);
+
   return (
-    <select onChange={selectHandler}>
+    <select
+      onChange={selectHandler}
+      className={darkTheme ? "darkcard telect" : "lightcard telect "}
+    >
       <option className="option">Filter by Region</option>
       <option className="option" value="Africa">
         Africa

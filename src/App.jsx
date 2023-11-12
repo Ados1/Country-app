@@ -9,20 +9,27 @@ import { ThemeContext } from "./components/ContextTheme";
 
 function App() {
   const { darkTheme, themeHandler } = useContext(ThemeContext);
+
   return (
     <>
-      <div className={darkTheme ? " bg-black header" : "bg-white header"}>
+      <div className={darkTheme ? "darkhead header " : "lighthead header"}>
         <div className="containerNav">
           <h5>Where in the world ?</h5>
           <img src={moon} alt="theme" onClick={themeHandler} />
           <h5>Dark mode</h5>
         </div>
       </div>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<AllCountries />} />
-          <Route path="/country/:countryName" element={<Countryinfo />} />
-        </Routes>
+      <div className={darkTheme ? "darkcontainer bot " : "lightcontainer bot"}>
+        <div
+          className={
+            darkTheme ? "darkcontainer container " : "lightcontainer container"
+          }
+        >
+          <Routes>
+            <Route path="/" element={<AllCountries />} />
+            <Route path="/country/:countryName" element={<Countryinfo />} />
+          </Routes>
+        </div>
       </div>
     </>
   );

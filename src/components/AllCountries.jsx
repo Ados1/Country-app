@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { apiURL } from "./api";
 
 import SearchInput from "./SearchInput";
@@ -6,13 +6,14 @@ import FilterCountry from "./FilterCountry";
 
 import searchicon from "../assets/search.svg";
 import { Link } from "react-router-dom";
-// import { ThemeContext } from "./ContextTheme";
+import { ThemeContext } from "./ContextTheme";
+import searchicongrey from "../assets/search (1).svg";
 
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  // const { darkTheme, themeHandler } = useContext(ThemeContext);
+  const { darkTheme } = useContext(ThemeContext);
 
   const getAllCountries = async () => {
     try {
@@ -70,8 +71,13 @@ const AllCountries = () => {
   return (
     <div className="all_country_wrapper">
       <div className="country_top">
-        <div className="search">
-          <img src={searchicon} alt="search icon" />
+        <div className={darkTheme ? "darksearch  search" : "lightcard search"}>
+          {darkTheme ? (
+            <img src={searchicon} alt="search icon" />
+          ) : (
+            <img src={searchicongrey} alt="search icon" />
+          )}
+
           <SearchInput onSearch={getCountryByName} />
         </div>
         <div className="filter">
@@ -79,9 +85,17 @@ const AllCountries = () => {
         </div>
       </div>
 
-      <div className=" country_bottom">
+      <div
+        className={
+          darkTheme
+            ? "darkcontainer country_bottom"
+            : "lightcontainer country_bottom"
+        }
+      >
         {isLoading && !error && (
-          <h4>😃 Patience is a virtue, especially during loading times</h4>
+          <h4 className={darkTheme ? "lightcon" : "darkcon"}>
+            😃 Patience is a virtue, especially during loading times
+          </h4>
         )}
         {error && !isLoading && <h4>{error}</h4>}
 
@@ -89,7 +103,11 @@ const AllCountries = () => {
           // eslint-disable-next-line react/jsx-key
           <Link to={`/country/${country.name.common}`}>
             {" "}
-            <div className="country-card">
+            <div
+              className={
+                darkTheme ? "darkcard country-card" : "lightcard country-card"
+              }
+            >
               <div className="country_img">
                 <img src={country.flags.png} alt="flags" />
               </div>
