@@ -12,9 +12,11 @@ const FilterCountry = ({ onSelect }) => {
   return (
     <select
       onChange={selectHandler}
-      className={darkTheme ? "darkcard telect" : "lightcard telect "}
+      className={darkTheme ? "darkcard telect" : "lightcard telect"}
     >
-      <option className="option">Filter by Region</option>
+      <option className={darkTheme ? "lightcon option" : "darkcon option"}>
+        Filter by Region
+      </option>
       <option className="option" value="Africa">
         Africa
       </option>

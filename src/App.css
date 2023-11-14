@@ -86,6 +86,18 @@ body {
   cursor: pointer;
 }
 
+.containerNav img:nth-child(2) {
+  margin-left: 710px;
+  width: 20px;
+  cursor: pointer;
+  height: 15px;
+  margin-top: 28px;
+}
+
+.containerNav h5:nth-child(3) {
+  position: relative;
+  left: -28px;
+}
 .country_bottom {
   display: flex;
   flex-wrap: wrap;
@@ -169,7 +181,7 @@ input {
   border: none;
   outline: none;
   border-radius: 5px;
-  color: #fff;
+
   cursor: pointer;
   margin-left: -200px;
 }
@@ -380,7 +392,7 @@ h5 {
   .containerNav h5 {
     font-size: 13px;
   }
-  .containerNav h5:nth-child(3) {
+  .containerNav h5:nth-child(4) {
     position: relative;
     left: -800px;
   }
