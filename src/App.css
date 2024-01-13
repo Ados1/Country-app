@@ -236,14 +236,21 @@ button {
   border-radius: 5px;
   display: block;
 }
-button img {
+button img:nth-child(1) {
   position: relative;
-  top: 13px;
+  top: 14px;
+  width: 15px;
+  right: -14px;
+}
+
+button img:nth-child(0) {
+  position: relative;
+  top: 17px;
   width: 15px;
   right: -14px;
 }
 button p {
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   font-size: 12px;
 }
 
@@ -323,7 +330,7 @@ h5 {
     align-content: center;
   }
   .country-card {
-    width: 300px;
+    width: 280px;
     height: 336px;
   }
   country_img img {
@@ -358,12 +365,12 @@ h5 {
     border-radius: 5px;
     border: none;
     outline: none;
-    background: hsl(209, 23%, 22%);
+
     margin-bottom: 50px;
-    width: 20rem;
+    width: 22rem;
     height: 48px;
     margin-bottom: 50px;
-    margin-left: 20px;
+    margin-left: 31px;
   }
   .search img {
     position: relative;
@@ -380,27 +387,29 @@ h5 {
     color: #fff;
     position: relative;
     left: 1px;
+    top: 3.5px;
+    font-size: 13px;
   }
-  select {
-    width: 200px;
-    height: 48px;
-    margin-left: -95px;
-  }
+
   .containerNav {
     display: flex;
   }
   .containerNav h5 {
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: "Nunito";
+    margin-left: -15px;
   }
-  .containerNav h5:nth-child(4) {
+  .containerNav h5:nth-child(3) {
     position: relative;
-    left: -800px;
+    left: -780px;
+    font-size: 14px;
   }
   .containerNav img {
     position: relative;
-    left: -730px;
+    left: -700px;
   }
-  /* .country_info_wrapper {
+  .country_info_wrapper {
     padding: 50px;
   }
   button {
@@ -418,11 +427,23 @@ h5 {
 
   .country_info_container span {
     font-weight: 300;
-  } */
+  }
+  .telect {
+    padding: 15px 20px;
+
+    width: 200px;
+    margin-bottom: 50px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: -120px;
+  }
 }
 
 /* Tablet view */
-@media (max-width: 980px) {
+@media (max-width: 980px) and (min-width: 670px) {
   .country_top {
     display: flex;
 
@@ -434,6 +455,7 @@ h5 {
     gap: 40px;
     column-gap: 5px;
     grid-template-columns: repeat(3, 1fr);
+    margin-left: 28px;
   }
   .country-card {
     width: 200px;
@@ -456,32 +478,41 @@ h5 {
     display: flex;
   }
   .containerNav h5 {
-    font-size: 13px;
+    font-size: 14px;
+    position: relative;
+    left: 40px;
   }
   .containerNav h5:nth-child(3) {
     position: relative;
-    left: -400px;
+    left: -405px;
+    font-size: 14px;
   }
   .containerNav img {
     position: relative;
-    left: -340px;
+    left: -330px;
   }
   input {
     width: 17rem;
     height: 48px;
     margin-left: 30px;
   }
+  ::placeholder {
+    color: #fff;
+    position: relative;
+    left: -1px;
+    top: 3.5px;
+    font-size: 14px;
+  }
   .search {
     color: #fff;
     border-radius: 5px;
     border: none;
     outline: none;
-    background: hsl(209, 23%, 22%);
     margin-bottom: 50px;
-    width: 20rem;
+    width: 17rem;
     height: 48px;
     margin-bottom: 50px;
-    margin-left: 31px;
+    margin-left: 55px;
   }
   .search img {
     position: relative;
@@ -493,9 +524,17 @@ h5 {
     height: 28px;
     margin-left: -30px;
   }
-  select {
+  .telect {
     width: 200px;
     height: 48px;
-    margin-left: -245px;
+    margin-left: -235px;
+    font-size: 14px;
+    margin-top: -5px;
+  }
+
+  .telect option {
+    margin: auto;
+    position: relative;
+    left: -10px;
   }
 }

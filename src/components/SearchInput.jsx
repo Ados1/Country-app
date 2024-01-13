@@ -21,7 +21,7 @@ const SearchInput = ({ onSearch }) => {
         className={
           darkTheme
             ? "darksearch !placeholder-white "
-            : "lightsearch placeholder-slate-500 "
+            : "lightsearch !placeholder-slate-500 "
         }
       />
     </form>

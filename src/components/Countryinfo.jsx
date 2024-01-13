@@ -49,7 +49,7 @@ const Countryinfo = () => {
       </button>
 
       {isLoading && !error && (
-        <h4 className={darkTheme ? "lightcon" : "darkcon"}>
+        <h4 className={darkTheme ? "!lightcon" : "!darkcon"}>
           😃 Patience is a virtue, especially during loading times
         </h4>
       )}
