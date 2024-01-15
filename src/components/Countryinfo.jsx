@@ -73,7 +73,8 @@ const Countryinfo = () => {
 
               <div className="country_info-left">
                 <h5>
-                  Native Name:<span>{country.name.common}</span>
+                  Native Name:
+                  <span className="w-[100px]">{country.name.common}</span>
                 </h5>
                 <h5>
                   Population:
@@ -117,19 +118,7 @@ const Countryinfo = () => {
               <h5>Border Countries:</h5>
               <ul key={country}>
                 <li className={darkTheme ? "darkhead" : "lighthead"}>
-                  {country.borders[0]}
-                </li>
-                <li className={darkTheme ? "darkhead" : "lighthead"}>
-                  {country.borders[1]}
-                </li>
-                <li className={darkTheme ? "darkhead" : "lighthead"}>
-                  {country.borders[2]}
-                </li>
-                <li className={darkTheme ? "darkhead" : "lighthead"}>
-                  {country.borders[3]}
-                </li>
-                <li className={darkTheme ? "darkhead" : "lighthead"}>
-                  {country.borders[4]}
+                  {country.border}
                 </li>
               </ul>
             </>
