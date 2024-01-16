@@ -36,8 +36,8 @@ const Countryinfo = () => {
   }, [countryName]);
 
   return (
-    <div className="country_info_wrapper">
-      <button className={darkTheme ? "darkhead" : "lighthead"}>
+    <div className="country_info_wrapper  ">
+      <button className={darkTheme ? "darkhead " : "lighthead "}>
         {darkTheme ? (
           <img src={arrowlight} alt="arrow" />
         ) : (
@@ -65,7 +65,11 @@ const Countryinfo = () => {
           }
         >
           <div className="country_info-img">
-            <img src={country.flags.png} alt="flags" />
+            <img
+              src={country.flags.png}
+              alt="flags"
+              className="w-[300px] rounded-md"
+            />
           </div>
           <div className="country_info">
             <div className="country_info-head" key={index}>
